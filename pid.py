@@ -39,6 +39,9 @@ pi.set_servo_pulsewidth(ESC4, norm)
 
 #Setup variables
 rad_to_deg = 180/3.141592654
+imu = program.init()
+timeV = time.time()
+previous_errorP, previous_errorR = 0.0
 
 #PID Constants:
 kp=1
@@ -46,9 +49,6 @@ ki=1
 kd=1
 
 desired_angle = 0
-
-imu = program.init()
-timeV = time.time()
 
 while(True):
     timePrev=timeV
