@@ -4,7 +4,8 @@ import time
 os.system("sudo pigpiod") #Launching GPIO library
 time.sleep(1)
 import pigpio
-import angle.py
+import sys
+import program
 
 #////////////////////////////////MOTOR SETUP///////////////////////////////////
 ESC1=13  #ESC connections with the GPIO pins; note its the BROADCOM number, not the GPIO pin number!
@@ -27,7 +28,7 @@ pi.set_servo_pulsewidth(ESC2, min_value)
 pi.set_servo_pulsewidth(ESC3, min_value)
 pi.set_servo_pulsewidth(ESC4, min_value)
 
-ser = serial.Serial('/dev/ttyACM0',115200,timeout=1)
+#ser = serial.Serial('/dev/ttyACM0',115200,timeout=1)
 norm = 1040
 pi.set_servo_pulsewidth(ESC1, norm)
 pi.set_servo_pulsewidth(ESC2, norm)
@@ -46,14 +47,15 @@ kd=1
 
 desired_angle = 0
 
-time = lambda: int(round(time.time() * 1000))
+imu = program.init()
+timeV = time.time()
 
 while(True):
     timePrev=timeV
-    timeV=time()
-    elapsedTime = (timeV - timePrev)
+    timeV=time.time()
+    elapsedTime = (timeV - timePrev)/1000
 
-    angle = angle.angle()#Pitch, Roll
+    angle = program.angle(imu)#Pitch, Roll
 
     errorP = angle[0]-desired_angle
     errorR = angle[1]-desired_angle
