@@ -142,23 +142,10 @@ while(True):
         RRight = 600
 
 
-    if strA[0] > 45:
-        pi.set_servo_pulsewidth(ESC4, 1150)
-    else:
-        pi.set_servo_pulsewidth(ESC4, 1030)
-    if strA[1] > 45:
-        pi.set_servo_pulsewidth(ESC3, 1150)
-    else:
-        pi.set_servo_pulsewidth(ESC3, 1030)
-    if strA[1] < -45:
-        pi.set_servo_pulsewidth(ESC1, 1150)
-    else:
-        pi.set_servo_pulsewidth(ESC1, 1030)
-        
-    #pi.set_servo_pulsewidth(ESC1, (PBack+RRight)/2)
-    #pi.set_servo_pulsewidth(ESC2, (PFront+RRight)/2)
-    #pi.set_servo_pulsewidth(ESC3, (PFront+RLeft)/2)
-    #pi.set_servo_pulsewidth(ESC4, (PBack+RLeft)/2)
+    pi.set_servo_pulsewidth(ESC1, (PBack+RRight)/2)
+    pi.set_servo_pulsewidth(ESC2, (PFront+RRight)/2)
+    pi.set_servo_pulsewidth(ESC3, (PFront+RLeft)/2)
+    pi.set_servo_pulsewidth(ESC4, (PBack+RLeft)/2)
     
     #print PBack+RLeft
 
