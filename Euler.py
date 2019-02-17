@@ -23,9 +23,7 @@ def rotation_matrix(ax, ay, az, bx, by, bz):
     c = np.dot(a, b)*np.cos(angle)
 
     identity = np.array([[1,0,0],[0,1,0],[0,0,1]])
-    vcross = skew_symmetric_cross(x=[0, -1*v[2], v[1]],
-                                  y=[v[2], 0, -1*v[0]],
-                                  z=[-1*v[1], v[0], 0])
+    vcross = np.array([0, -1*v[2], v[1]], [v[2], 0, -1*v[0]], [-1*v[1], v[0], 0])
 
     constant = 1/(1+c)
     
