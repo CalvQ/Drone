@@ -7,12 +7,12 @@ bus = smbus.SMBus(1)
 # L3GD20 address, 0x6A(106)
 # Select Control register1, 0x20(32)
 #		0x0F(15)	Normal mode, X, Y, Z-Axis enabled
-bus.write_byte_data(0x6A, 0x20, 0x0F)
+bus.write_byte_data(0x6B, 0x20, 0x0F)
 # L3GD20 address, 0x6A(106)
 # Select Control register4, 0x23(35)
 #		0x30(48)	Continous update, Data LSB at lower address
 #					FSR 2000dps, Self test disabled, 4-wire interface
-bus.write_byte_data(0x6A, 0x23, 0x30)
+bus.write_byte_data(0x6B, 0x23, 0x30)
 
 time.sleep(0.5)
 
