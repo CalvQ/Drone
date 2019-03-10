@@ -1,4 +1,4 @@
-import adafruit_l3gd20 as lgd
+import adafruit_l3gd20
 
 from busio import I2C
 from board import SDA, SCL
